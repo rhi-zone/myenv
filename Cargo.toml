@@ -12,3 +12,6 @@ repository = "https://github.com/rhi-zone/myenv"
 myenv-core = { path = "crates/myenv-core" }
 myenv-seed = { path = "crates/myenv-seed" }
 myenv-store = { path = "crates/myenv-store" }
+
+[profile.dev]
+debug = 0
