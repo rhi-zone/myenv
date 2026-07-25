@@ -8,12 +8,14 @@ export default withMermaid(
 
     base: '/myenv/',
 
+    srcExclude: ['**/CLAUDE.md'],
+
     themeConfig: {
       nav: [
         { text: 'Guide', link: '/introduction' },
         { text: 'Manifest', link: '/manifest' },
         { text: 'Seeds', link: '/seeds' },
-        { text: 'rhi', link: 'https://rhizome-lab.github.io/' },
+        { text: 'rhi', link: 'https://docs.rhi.zone/' },
       ],
 
       sidebar: [
@@ -36,7 +38,7 @@ export default withMermaid(
       ],
 
       socialLinks: [
-        { icon: 'github', link: 'https://github.com/rhizome-lab/myenv' }
+        { icon: 'github', link: 'https://github.com/rhi-zone/myenv' }
       ],
 
       search: {
@@ -44,7 +46,7 @@ export default withMermaid(
       },
 
       editLink: {
-        pattern: 'https://github.com/rhizome-lab/myenv/edit/master/docs/:path',
+        pattern: 'https://github.com/rhi-zone/myenv/edit/master/docs/:path',
         text: 'Edit this page on GitHub'
       },
     },
