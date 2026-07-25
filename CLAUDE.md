@@ -89,6 +89,16 @@ Tools expose config metadata via `--schema`:
 
 **Do the work properly.** When asked to analyze X, actually read X - don't synthesize from conversation.
 
+## Behavioral Patterns
+
+From ecosystem-wide session analysis:
+
+- **Question scope early:** Before implementing, ask whether it belongs in this crate/module
+- **Check consistency:** Look at how similar things are done elsewhere in the codebase
+- **Implement fully:** No silent arbitrary caps, incomplete pagination, or unexposed trait methods
+- **Name for purpose:** Avoid names that describe one consumer
+- **Verify before stating:** Don't assert API behavior or codebase facts without checking
+
 ## Design Principles
 
 **Config generation, not orchestration.** Nursery generates configs, spore runs tools.
@@ -101,6 +111,20 @@ Tools expose config metadata via `--schema`:
 
 **No magic.** The manifest should be readable by humans.
 
+## Commit Convention
+
+Use conventional commits: `type(scope): message`
+
+Types:
+- `feat` - New feature
+- `fix` - Bug fix
+- `refactor` - Code change that neither fixes a bug nor adds a feature
+- `docs` - Documentation only
+- `chore` - Maintenance (deps, CI, etc.)
+- `test` - Adding or updating tests
+
+Scope is optional but recommended for multi-crate repos.
+
 ## Negative Constraints
 
 Do not:
@@ -109,6 +133,9 @@ Do not:
 - Create special cases - design to avoid them
 - Add tool execution to nursery - that's spore
 - Require tools at nursery runtime (only `--schema` is needed)
+- Use path dependencies in Cargo.toml - causes clippy to stash changes across repos
+- Use `--no-verify` - fix the issue or fix the hook
+- Assume tools are missing - check if `nix develop` is available for the right environment
 
 ## Crate Structure
 
